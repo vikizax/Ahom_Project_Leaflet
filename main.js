@@ -15,10 +15,10 @@ const setMarker = (la, lo, icon) => {
 
 // copy right 
 const attribution =
-    '<a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>'
+'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 // tile source
-const tileUrl = 'paste tile url here'
-
+// const tileUrl = 'paste tile url here'
+const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 // setting leaflet tile
 const tiles = L.tileLayer(tileUrl, { attribution })
 tiles.addTo(map)
