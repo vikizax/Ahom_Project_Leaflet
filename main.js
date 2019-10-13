@@ -13,6 +13,12 @@ const setMarker = (la, lo, icon) => {
     return L.marker([la, lo], { icon: new LeafIcon({ iconUrl: icon }) }).addTo(map)
 }
 
+// utility : connect polylines
+const connectMarker = (arraySet, option) => {
+    return L.polyline(arraySet, option).addTo(map)
+}
+
+
 // copy right 
 const attribution =
 '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -88,3 +94,39 @@ dhemaji.bindPopup('Search of Capital, 1: Dhemaji')
 // 2: Nazira
 const nazira = setMarker(26.906063, 94.725027, 'assets/icons/cap2.png')
 nazira.bindPopup('Search of Capital, 2: Nazira')
+
+// array of cordinates 
+// journey to assam
+const journeyLatLong = [
+    [
+        [24.089249, 98.054385],
+        [25.416836, 97.392241],
+        [25.303240, 96.933099],
+        [25.366652, 97.323406],
+        [27.222176, 96.140646],
+        [27.247084, 96.153222],
+        [27.184697, 95.349409],
+        [27.274610, 95.396291],
+        [27.311547, 94.457458],
+        [26.980903, 94.464745],
+        [26.993663, 94.483028],
+        [26.919686, 94.761020],
+        [26.941312, 94.875947]
+    ],
+]
+// in search of capital
+const inSearchOfCapital = [
+    [
+        [27.480696, 94.557790],
+        [26.906063, 94.725027]
+    ]
+]
+
+// option for polylines
+const journeyLineOptions = { color: 'red' }
+const inSearchOfCapitalOptions = { color: 'green' }
+
+// show polylines of sukaphaa's journey
+connectMarker(journeyLatLong, journeyLineOptions)
+// show polylines for the search of capital
+connectMarker(inSearchOfCapital, inSearchOfCapitalOptions)
